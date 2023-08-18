@@ -3,12 +3,16 @@
     padding: 0;
 }
 :root{
-    --buttonBackground:orange;
+    --buttonBackground:#89cf89;
     --buttonColor:white;
     --backgroundColor:#eee;
     --backgroundColorSecondary:#fff;
     --borderRadius:10px;
-    --sidabarBackground:rgb(137, 207, 137);
+    --sidabarBackground:#89cf89;
+}
+@font-face {
+    font-family: Poppins;
+    src: url(./fonts/Poppins-Regular.ttf);
 }
 .icon{
     width: 20px;
@@ -37,6 +41,7 @@ body{
     grid-template-rows:150px auto ;
     background-color: var(--backgroundColor);
     height: 100%;
+    font-family: Poppins;
 }
 header{
     padding-top: 10px;
@@ -58,12 +63,17 @@ header .search-area{
 header .search-area img{
     padding-right:20px;
 }
+header .search-area img{
+    padding-top: 5px;
+}
 header .search-area input{
     flex: 1;
     line-height: 1.6em;
     border-radius: 30px;
     border: none;
     background-color: var(--backgroundColor);
+    font-size: 18px;
+    padding: 2px 10px;
 }
 header > div:first-child >div:last-child{
     display: grid;
@@ -147,6 +157,7 @@ main{
 
 }
 .announcements{
+    line-height: 1.5em;
     grid-row: 1;
     grid-column: 3;
     justify-self: end;
@@ -170,7 +181,7 @@ main{
     
 }
 .trending .trending-profiles{
-    
+    line-height: 1.3em;
     display: grid;
     grid-template-columns: auto;
     gap: 15px;
@@ -188,8 +199,11 @@ main{
     grid-template-rows: auto auto;
     overflow: hidden;
 }
+.card .text h3{
+    padding-bottom: 10px;
+}
 .card .line{
-    background-color: var(--buttonBackground);
+    background-color: var(--sidabarBackground);
     grid-row: 1/-1;
 }
 .card .text{
@@ -197,12 +211,17 @@ main{
     grid-row: 1;
     align-items: start;
     grid-column: 2;
+    line-height: 1.5em;
 }
 .card .buttons{
     grid-column: 2;
     align-self: end;
     justify-self: end;
     padding: 10px ;
+    display: flex;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
 }
 .projects{
     grid-column: 1/3;
@@ -214,7 +233,7 @@ main{
 .projects >div{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     grid-template-rows: auto;
     gap: 20px;
 }
