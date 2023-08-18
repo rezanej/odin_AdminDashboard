@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
 }
+ * , *:before, *:after{ 
+     box-sizing:border-box; 
+     -moz-box-sizing:border-box; 
+     -webkit-box-sizing:border-box; 
+     -ms-box-sizing:border-box;
+   }
 :root{
     --buttonBackground:#89cf89;
     --buttonColor:white;
@@ -9,6 +15,8 @@
     --backgroundColorSecondary:#fff;
     --borderRadius:10px;
     --sidabarBackground:#89cf89;
+    --buttonHover:#46cf46;
+    --buttonActive:#007300;
 }
 @font-face {
     font-family: Poppins;
@@ -33,14 +41,14 @@
     border-radius: 50%;
 }
 html{
-    height: 100%;
+    max-height: 100%;
 }
 body{
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-rows:150px auto ;
     background-color: var(--backgroundColor);
-    height: 100%;
+    max-height: 100%;
     font-family: Poppins;
 }
 header{
@@ -48,23 +56,18 @@ header{
     background-color:var(--backgroundColorSecondary);
     grid-column: 2;
     grid-row: 1;
+    padding-bottom: 15px;
 }
 header > div:first-child{
     display: grid;
     grid-template-columns:  5fr 1fr;
     align-items: center;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 header .search-area{
     display: flex;
     max-width: 80%;
-    margin-left: 30px;
-}
-header .search-area img{
-    padding-right:20px;
-}
-header .search-area img{
-    padding-top: 5px;
+    padding-left: 30px;
 }
 header .search-area input{
     flex: 1;
@@ -106,7 +109,7 @@ header #hi-username{
     display: flex;
     gap: 15px;
 }
-button{
+.button{
     padding: 0.5rem 1.5rem;
     border-radius: 30px;
     border: none;
@@ -114,35 +117,58 @@ button{
     font-weight: 700;
     background-color: var(--buttonBackground);
 }
+.button:hover{
+    background-color: var(--buttonHover);
+}
+.button:active{
+    background-color: var(--buttonActive);
+}
+.iconButton{
+    border-radius: 50%;
+    padding: 0.55rem;
+    text-align: center;
+    border: none;
+}
+.iconButton:hover{
+    background-color: var(--buttonBackground);
+}
+.iconButton:active{
+    background-color: var(--buttonActive);
+}
 .sidebar {
     background-color: var(--sidabarBackground);
-    padding-left: 20px;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     justify-items: start;
     align-items: start;
     align-content: start;
     justify-content: start;
-    gap: 10px;
     grid-area: 1/1/-1/2;
-    height: 100%;
+    min-height: 100vh;
+    max-height: 100%;
 }
 .sidebar a{
     display: flex;
     align-items: center;
-    gap: 20px;
     justify-content: flex-start;
     text-decoration: none;
+    gap: 20px;
     color: var(--backgroundColorSecondary);
-    padding-left: 10px;
+    width: 100%;
+    padding: 8px 15px;
+    box-sizing: border-box;
+}
+.sidebar a:hover{
+    background-color: var(--buttonHover);
+}
+.sidebar a:active{
+    background-color: var(--buttonActive);
 }
 .sidebar a:first-child{
-    gap:10px;
-    padding-left: 0px;
     padding-top: 10px;
 }
 .sidebar a:nth-child(2) ,.sidebar a:nth-child(8){
-    padding-top: 25px;
+    margin-top: 25px;
 }
 .sidebar h3{
    justify-self: start;
@@ -150,22 +176,22 @@ button{
 main{
     grid-area: 2/2/-1/-1;
     display: grid;
-    grid-template-columns: 1fr 1fr 285px;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 335px;
+    grid-template-rows: auto auto;
     gap: 15px;
-    padding: 15px;
-
+    padding: 0 15px;
 }
 .announcements{
     line-height: 1.5em;
     grid-row: 1;
     grid-column: 3;
     justify-self: end;
+    padding-top: 10px;
 }
 .announcements .topics ,.trending .trending-profiles{
     background-color: var(--backgroundColorSecondary);
     border-radius: var(--borderRadius);
-    width: 250px;
+    width: 300px;
     padding: 15px;
     margin-top: 10px;
 }
@@ -173,6 +199,7 @@ main{
     display: grid;
     gap: 15px;
     grid-template-columns: auto;
+   
 }
 .trending{
     grid-row: 2;
@@ -229,6 +256,7 @@ main{
 }
 .projects h2{
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 .projects >div{
     width: 100%;
