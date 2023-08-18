@@ -3,7 +3,8 @@
     padding: 0;
 }
 :root{
-
+    --buttonBackground:orange;
+    --buttonColor:white;
 }
 .icon{
     width: 20px;
@@ -22,4 +23,67 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
+}
+header{
+    background-color: aliceblue;
+    padding-top: 10px;
+}
+header > div:first-child{
+    display: grid;
+    grid-template-columns:  5fr 1fr;
+    align-items: center;
+    margin-bottom: 20px;
+}
+header .search-area{
+    display: flex;
+    max-width: 80%;
+    margin-left: 30px;
+}
+header .search-area img{
+    padding-right:20px;
+}
+header .search-area input{
+    flex: 1;
+    line-height: 1.6em;
+    border-radius: 30px;
+    border: none;
+}
+header > div:first-child >div:last-child{
+    display: grid;
+    grid-template-columns:  1fr 1fr 100px;
+    align-items: center;
+    gap: 20px;
+    padding-right: 40px;
+}
+header > div:last-child{
+    display: grid;
+    grid-template-columns: 3fr 300px;
+    justify-items: start;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.profile-name-pic{
+    display: grid;
+    grid-template-columns: 70px 400px;
+    justify-items: start;
+    align-items: center;
+    gap: 10px;
+    padding-left: 40px;
+}
+header #hi-username{
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.header-buttons{
+    display: flex;
+    gap: 15px;
+}
+button{
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    border: none;
+    color: var(--buttonColor);
+    font-weight: 700;
+    background-color: var(--buttonBackground);
 }
